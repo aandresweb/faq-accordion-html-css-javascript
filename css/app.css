@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "WorkSans-Bold";
+  src: url("../assets/fonts/static/WorkSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "WorkSans-Regular";
+  src: url("../assets/fonts/static/WorkSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "WorkSans-SemiBold";
+  src: url("../assets/fonts/static/WorkSans-SemiBold.ttf");
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hwb(293 41% 43%);
+  --dark-purple: hsl(292, 42%, 14%);
+  --purple: #ad28eb;
+
+  --font-bold: "WorkSans-Bold";
+  --font-regular: "WorkSans-Regular";
+  --font-semibold: "WorkSans-SemiBold";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-pink);
+  font-size: 16px;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+  max-height: 30vh;
+  overflow: hidden;
+}
+.app-header .bg-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.faq {
+  background-color: var(--white);
+  border-radius: 15px;
+  max-width: 620px;
+}
+
+.faq-wrapper {
+  padding: 2rem 3rem;
+}
+
+.faq-title {
+  display: flex;
+  column-gap: 20px;
+  color: var(--dark-purple);
+  font-family: var(--font-bold);
+  font-size: 4rem;
+}
+
+.faq-header {
+  margin-bottom: 2rem;
+}
+
+.accordion-title {
+  align-items: center;
+  display: flex;
+  color: var(--dark-purple);
+  justify-content: space-between;
+  font-family: var(--font-semibold);
+  margin-bottom: 1rem;
+  transition: 0.1s all ease-in-out;
+}
+
+.accordion-item:hover .accordion-title {
+  color: var(--purple);
+}
+.accordion-item {
+  cursor: pointer;
+}
+.accordion-item:not(:first-child) {
+  padding-top: 1rem;
+}
+.accordion-item:not(:last-child) {
+  border-bottom: 1px solid var(--light-pink);
+}
+.accordion-item .icon-minus {
+  display: none;
+}
+.accordion-item.open .icon-minus {
+  display: block;
+}
+.accordion-item.open .icon-plus {
+  display: none;
+}
+
+.accordion-item.open .accordion-body {
+  margin-bottom: 2rem;
+  height: fit-content;
+}
+.accordion-body {
+  font-family: var(--font-regular);
+  color: var(--grayish-purple);
+  line-height: 1.4rem;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 620px) {
+  .wrapper {
+    padding: 0 5%;
+  }
+
+  .app-header {
+    height: 30vh;
+  }
+
+  .faq-title {
+    font-size: 2rem;
+  }
+
+  .faq-title img {
+    max-width: 32px;
+  }
+
+  .faq-wrapper {
+    padding: 2rem 2rem;
+  }
+}
